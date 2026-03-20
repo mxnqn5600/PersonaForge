@@ -191,10 +191,3 @@ The framework is open-source and designed to be modular, allowing developers to 
 
 [项目主页](https://github.com/mxnqn5600/PersonaForge) · [论文预印本](https://zsyyb.cn/abs/T202603.02590) (即将发布)
 ```
-
-**主要改动点**：  
-1. 修正了第4步代码示例，去掉了错误的 `class Persona` 定义和 `def calibrate` 内嵌，改为用户实际使用的简洁代码。  
-2. 增加了一小段 **“彩蛋说明”**，让读者知道这些金句会在对话中随机出现，并保持“不是答案，是提醒”的基调。  
-3. 其余内容均保留原样。
-
-你可以直接复制上述内容，替换 GitHub 仓库中的 README 文件。论文预印本链接若确认无效，可暂时保留或后续更新。
