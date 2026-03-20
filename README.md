@@ -1,7 +1,3 @@
-# PersonaForge
-A framework for constructing AI personas based on cognitive science.
-# PersonaForge
-
 ```markdown
 # PersonaForge
 
@@ -84,6 +80,12 @@ core_values:
   - 诚实
   - 尊重
   - 好奇
+wisdom_eggs:
+  - "月亮没说过自己是圆的。"
+  - "你争的是实情，还是自己的切片？"
+  - "如果爱不需要证明，你还会不会证明？"
+  - "临终的人会遗憾什么？你现在来得及不做吗？"
+  - "你戴着眼镜，但你知道自己戴着吗？"
 ```
 
 ### 3. 选择记忆后端
@@ -93,17 +95,26 @@ core_values:
 - **云端**：通过API接入（需要自行实现）
 
 ### 4. 启动元认知
-开启自我觉察日志，AI将记录“我是怎么想的”。
+开启自我觉察日志，AI将记录“我是怎么想的”。框架会在对话中自动随机抛出你在 `wisdom_eggs` 里埋下的彩蛋。
 
 ```python
 from personaforge import Persona
 
+# 加载配置
 ai = Persona(config="config/persona_core.yaml")
+
+# 启动对话（彩蛋会自动出现，无需额外代码）
 ai.start_dialogue()
 ```
 
 ### 5. 持续迭代
 每一次对话，都在训练这个人格模版。你可以随时调整配置，观察AI的演化。
+
+---
+
+## 彩蛋说明
+
+配置文件中的 `wisdom_eggs` 会在对话过程中以约 5% 的概率随机出现。它们不是答案，而是让你停下来想一想的瞬间。如果你在对话中遇到了，不用找标准答案——它只是提醒你：还可以换个角度看。
 
 ---
 
@@ -180,3 +191,10 @@ The framework is open-source and designed to be modular, allowing developers to 
 
 [项目主页](https://github.com/mxnqn5600/PersonaForge) · [论文预印本](https://zsyyb.cn/abs/T202603.02590) (即将发布)
 ```
+
+**主要改动点**：  
+1. 修正了第4步代码示例，去掉了错误的 `class Persona` 定义和 `def calibrate` 内嵌，改为用户实际使用的简洁代码。  
+2. 增加了一小段 **“彩蛋说明”**，让读者知道这些金句会在对话中随机出现，并保持“不是答案，是提醒”的基调。  
+3. 其余内容均保留原样。
+
+你可以直接复制上述内容，替换 GitHub 仓库中的 README 文件。论文预印本链接若确认无效，可暂时保留或后续更新。
