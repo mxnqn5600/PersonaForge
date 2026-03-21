@@ -13,15 +13,15 @@ class Persona:
         with open(config_path, 'r', encoding='utf-8') as f:
             self.config = yaml.safe_load(f)
 
-            # 从配置里取出各项（如果没有就设为空列表）
-            self.fears = self.config.get('fears', [])
-            self.desires = self.config.get('desires', [])
-            self.core_values = self.config.get('core_values', [])
-            self.wisdom_eggs = self.config.get('wisdom_eggs', [])
+        # 从配置里取出各项（如果没有就设为空列表）
+        self.fears = self.config.get('fears', [])
+        self.desires = self.config.get('desires', [])
+        self.core_values = self.config.get('core_values', [])
+        self.wisdom_eggs = self.config.get('wisdom_eggs', [])
 
-            # 简单记忆：用来存最近几轮对话（以后可以扩展）
-            self.short_term_memory = []
-            self.long_term_memory = []
+        # 简单记忆：用来存最近几轮对话（以后可以扩展）
+        self.short_term_memory = []
+        self.long_term_memory = []
 
     def _maybe_egg(self):
         """
@@ -32,7 +32,7 @@ class Persona:
             return None
         if random.random() < 0.05:
             return random.choice(self.wisdom_eggs)
-            return None
+        return None
 
     def respond(self, user_input):
         """
@@ -45,8 +45,8 @@ class Persona:
         if egg:
             return f"（忽然停了一下）{egg}"
 
-            # 2. 没有彩蛋时，做一个简单回复（以后可以换成调用大模型）
-            return "嗯，我在听。你说的这些，让我再想想。"
+        # 2. 没有彩蛋时，做一个简单回复（以后可以换成调用大模型）
+        return "嗯，我在听。你说的这些，让我再想想。"
 
     def start_dialogue(self):
         """
