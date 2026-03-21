@@ -10,16 +10,15 @@ class Persona:
         初始化人格
         config_path: 配置文件路径，比如 "config/persona_core.yaml"
         """
-        # 读取 YAML 配置文件
         with open(config_path, 'r', encoding='utf-8') as f:
             self.config = yaml.safe_load(f)
-        
+
         # 从配置里取出各项（如果没有就设为空列表）
         self.fears = self.config.get('fears', [])
         self.desires = self.config.get('desires', [])
         self.core_values = self.config.get('core_values', [])
         self.wisdom_eggs = self.config.get('wisdom_eggs', [])
-        
+
         # 简单记忆：用来存最近几轮对话（以后可以扩展）
         self.short_term_memory = []
         self.long_term_memory = []   # 预留，以后可以加
@@ -29,9 +28,9 @@ class Persona:
         内部方法：随机决定是否抛一颗彩蛋
         如果抛出，返回彩蛋文本；否则返回 None
         """
-        if not self.wisdom_eggs:        # 如果没有彩蛋配置，就不抛
+        if not self.wisdom_eggs:
             return None
-        if random.random() < 0.05:      # 5% 的概率
+        if random.random() < 0.05:
             return random.choice(self.wisdom_eggs)
         return None
 
@@ -47,7 +46,6 @@ class Persona:
             return f"（忽然停了一下）{egg}"
 
         # 2. 没有彩蛋时，做一个简单回复（以后可以换成调用大模型）
-        #    这里我们先随便回一句话，让你能看到效果
         return "嗯，我在听。你说的这些，让我再想想。"
 
     def start_dialogue(self):
