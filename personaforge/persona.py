@@ -21,7 +21,7 @@ class Persona:
 
         # 简单记忆：用来存最近几轮对话（以后可以扩展）
         self.short_term_memory = []
-        self.long_term_memory = []   # 预留，以后可以加
+        self.long_term_memory = []
 
     def _maybe_egg(self):
         """
